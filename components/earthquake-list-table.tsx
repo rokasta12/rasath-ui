@@ -8,6 +8,7 @@ import {
 	TableRow,
 } from "@/components/ui/table";
 import { earthquakes } from "./dummy";
+import { MagnitudeBadge } from "./earthquake-magnitude-badge";
 
 const earthQuaketoTNTDamage = (magnitude: number) => {
 	const tntDamage = Math.pow(10, 1.5 * magnitude + 4.8);
@@ -53,7 +54,9 @@ export function EarthquakeTable() {
 						<TableCell>{item.depth}</TableCell>
 
 						<TableCell>{item.magnitudes.MD}</TableCell>
-						<TableCell>{item.magnitudes.ML}</TableCell>
+						<TableCell>
+							<MagnitudeBadge magnitude={item.magnitudes.ML} />
+						</TableCell>
 						<TableCell>{item.magnitudes.Mw}</TableCell>
 
 						<TableCell>{item.location}</TableCell>
